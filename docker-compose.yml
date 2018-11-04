@@ -11,7 +11,7 @@ services:
     links:
       - mongodb
     networks:
-      - eva_containers-network
+      - containers-network
     ports:
       - 8888:8888
       - 9876:9876
@@ -28,7 +28,7 @@ services:
     hostname: keosd
     restart: always
     networks:
-      - eva_containers-network
+      - containers-network
     links:
       - nodeosd
     volumes:
@@ -42,7 +42,7 @@ services:
       - mongodb:/data/db
       - mongodb_config:/data/configdb
     networks:
-      - eva_containers-network
+      - containers-network
     ports:
         - 27017:27017
     command: mongod
@@ -57,5 +57,5 @@ volumes:
   mongodb_config:
 
 networks:
-  eva_containers-network:
+  containers-network:
      external: true
